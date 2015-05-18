@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="activizm" match-name="activists"/>
+  <table-filter match-catalog="activizm" match-name="cities"/>
+  <table-filter match-catalog="activizm" match-name="communities"/>
+  <table-filter match-catalog="activizm" match-name="coordinators"/>
+  <table-filter match-catalog="activizm" match-name="events"/>
+  <table-filter match-catalog="activizm" match-name="eventtype"/>
+  <table-filter match-catalog="activizm" match-name="organisationeventtype"/>
+  <table-filter match-catalog="activizm" match-name="phones"/>
+  <table-filter match-catalog="activizm" match-name="requester"/>
+  <table-filter match-catalog="activizm" match-name="schedulewithdate"/>
+  <table-filter match-catalog="activizm" match-name="schedulewithweekdays"/>
+  <table-filter match-catalog="activizm" match-name="subcommunities"/>
+</hibernate-reverse-engineering>
