@@ -1,6 +1,6 @@
 package ru.xaptenodytes.activizm.model;
 
-// Generated 18.05.2015 14:47:17 by Hibernate Tools 4.3.1
+// Generated 19.05.2015 16:37:34 by Hibernate Tools 4.3.1
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -24,17 +24,13 @@ import org.hibernate.annotations.Parameter;
 @Table(name = "activists", catalog = "activizm", uniqueConstraints = {
 		@UniqueConstraint(columnNames = "cityId"),
 		@UniqueConstraint(columnNames = "coordinatorId") })
-public class Activists implements java.io.Serializable {
+public class Activist implements java.io.Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -8839335027019665978L;
 	private Integer activistId;
-	private Events events;
-	private Phones phones;
-	private ScheduleWithDate scheduleWithDate;
-	private ScheduleWithWeekdays scheduleWithWeekdays;
+	private Event event;
+	private Phone phone;
+	private Schedulewithdate schedulewithdate;
+	private Schedulewithweekdays schedulewithweekdays;
 	private Integer vkId;
 	private Integer fbId;
 	private String email;
@@ -49,20 +45,20 @@ public class Activists implements java.io.Serializable {
 	private Boolean status;
 	private Integer cityId;
 	private Integer districtId;
-	private Coordinators coordinators;
-	private Cities cities;
+	private Coordinator coordinator;
+	private City city;
 
-	public Activists() {
+	public Activist() {
 	}
 
-	public Activists(Events events, Phones phones,
-			ScheduleWithDate scheduleWithDate,
-			ScheduleWithWeekdays scheduleWithWeekdays, String passwdHash,
+	public Activist(Event event, Phone phone,
+			Schedulewithdate schedulewithdate,
+			Schedulewithweekdays schedulewithweekdays, String passwdHash,
 			String surname, String name1, Date registrDate, int coordinatorId) {
-		this.events = events;
-		this.phones = phones;
-		this.scheduleWithDate = scheduleWithDate;
-		this.scheduleWithWeekdays = scheduleWithWeekdays;
+		this.event = event;
+		this.phone = phone;
+		this.schedulewithdate = schedulewithdate;
+		this.schedulewithweekdays = schedulewithweekdays;
 		this.passwdHash = passwdHash;
 		this.surname = surname;
 		this.name1 = name1;
@@ -70,18 +66,18 @@ public class Activists implements java.io.Serializable {
 		this.coordinatorId = coordinatorId;
 	}
 
-	public Activists(Events events, Phones phones,
-			ScheduleWithDate scheduleWithDate,
-			ScheduleWithWeekdays scheduleWithWeekdays, Integer vkId,
+	public Activist(Event event, Phone phone,
+			Schedulewithdate schedulewithdate,
+			Schedulewithweekdays schedulewithweekdays, Integer vkId,
 			Integer fbId, String email, String passwdHash, String surname,
 			String name1, String name2, Date registrDate, Date activateDate,
 			Date desactivateDate, int coordinatorId, Boolean status,
-			Integer cityId, Integer districtId, Coordinators coordinators,
-			Cities cities) {
-		this.events = events;
-		this.phones = phones;
-		this.scheduleWithDate = scheduleWithDate;
-		this.scheduleWithWeekdays = scheduleWithWeekdays;
+			Integer cityId, Integer districtId, Coordinator coordinator,
+			City city) {
+		this.event = event;
+		this.phone = phone;
+		this.schedulewithdate = schedulewithdate;
+		this.schedulewithweekdays = schedulewithweekdays;
 		this.vkId = vkId;
 		this.fbId = fbId;
 		this.email = email;
@@ -96,8 +92,8 @@ public class Activists implements java.io.Serializable {
 		this.status = status;
 		this.cityId = cityId;
 		this.districtId = districtId;
-		this.coordinators = coordinators;
-		this.cities = cities;
+		this.coordinator = coordinator;
+		this.city = city;
 	}
 
 	@GenericGenerator(name = "generator", strategy = "foreign", parameters = @Parameter(name = "property", value = "events"))
@@ -114,43 +110,43 @@ public class Activists implements java.io.Serializable {
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
-	public Events getEvents() {
-		return this.events;
+	public Event getEvents() {
+		return this.event;
 	}
 
-	public void setEvents(Events events) {
-		this.events = events;
-	}
-
-	@OneToOne(fetch = FetchType.LAZY)
-	@PrimaryKeyJoinColumn
-	public Phones getPhones() {
-		return this.phones;
-	}
-
-	public void setPhones(Phones phones) {
-		this.phones = phones;
+	public void setEvents(Event event) {
+		this.event = event;
 	}
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
-	public ScheduleWithDate getSchedulewithdate() {
-		return this.scheduleWithDate;
+	public Phone getPhones() {
+		return this.phone;
 	}
 
-	public void setSchedulewithdate(ScheduleWithDate scheduleWithDate) {
-		this.scheduleWithDate = scheduleWithDate;
+	public void setPhones(Phone phone) {
+		this.phone = phone;
 	}
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
-	public ScheduleWithWeekdays getSchedulewithweekdays() {
-		return this.scheduleWithWeekdays;
+	public Schedulewithdate getSchedulewithdate() {
+		return this.schedulewithdate;
+	}
+
+	public void setSchedulewithdate(Schedulewithdate schedulewithdate) {
+		this.schedulewithdate = schedulewithdate;
+	}
+
+	@OneToOne(fetch = FetchType.LAZY)
+	@PrimaryKeyJoinColumn
+	public Schedulewithweekdays getSchedulewithweekdays() {
+		return this.schedulewithweekdays;
 	}
 
 	public void setSchedulewithweekdays(
-			ScheduleWithWeekdays scheduleWithWeekdays) {
-		this.scheduleWithWeekdays = scheduleWithWeekdays;
+			Schedulewithweekdays schedulewithweekdays) {
+		this.schedulewithweekdays = schedulewithweekdays;
 	}
 
 	@Column(name = "vkID")
@@ -283,21 +279,21 @@ public class Activists implements java.io.Serializable {
 	}
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "activists")
-	public Coordinators getCoordinators() {
-		return this.coordinators;
+	public Coordinator getCoordinators() {
+		return this.coordinator;
 	}
 
-	public void setCoordinators(Coordinators coordinators) {
-		this.coordinators = coordinators;
+	public void setCoordinators(Coordinator coordinator) {
+		this.coordinator = coordinator;
 	}
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "activists")
-	public Cities getCities() {
-		return this.cities;
+	public City getCities() {
+		return this.city;
 	}
 
-	public void setCities(Cities cities) {
-		this.cities = cities;
+	public void setCities(City city) {
+		this.city = city;
 	}
 
 }

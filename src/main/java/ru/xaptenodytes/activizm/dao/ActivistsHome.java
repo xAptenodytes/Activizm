@@ -1,6 +1,6 @@
 package ru.xaptenodytes.activizm.dao;
 
-// Generated 18.05.2015 14:51:45 by Hibernate Tools 4.3.1
+// Generated 19.05.2015 16:37:43 by Hibernate Tools 4.3.1
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -9,11 +9,11 @@ import javax.persistence.PersistenceContext;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import ru.xaptenodytes.activizm.model.Activists;
+import ru.xaptenodytes.activizm.model.Activist;
 
 /**
  * Home object for domain model class Activists.
- * @see ru.xaptenodytes.activizm.dao.Activists
+ * @see ru.xaptenodytes.activizm.dao.Activist
  * @author Hibernate Tools
  */
 @Stateless
@@ -24,7 +24,7 @@ public class ActivistsHome {
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	public void persist(Activists transientInstance) {
+	public void persist(Activist transientInstance) {
 		log.debug("persisting Activists instance");
 		try {
 			entityManager.persist(transientInstance);
@@ -35,7 +35,7 @@ public class ActivistsHome {
 		}
 	}
 
-	public void remove(Activists persistentInstance) {
+	public void remove(Activist persistentInstance) {
 		log.debug("removing Activists instance");
 		try {
 			entityManager.remove(persistentInstance);
@@ -46,10 +46,10 @@ public class ActivistsHome {
 		}
 	}
 
-	public Activists merge(Activists detachedInstance) {
+	public Activist merge(Activist detachedInstance) {
 		log.debug("merging Activists instance");
 		try {
-			Activists result = entityManager.merge(detachedInstance);
+			Activist result = entityManager.merge(detachedInstance);
 			log.debug("merge successful");
 			return result;
 		} catch (RuntimeException re) {
@@ -58,10 +58,10 @@ public class ActivistsHome {
 		}
 	}
 
-	public Activists findById(Integer id) {
+	public Activist findById(Integer id) {
 		log.debug("getting Activists instance with id: " + id);
 		try {
-			Activists instance = entityManager.find(Activists.class, id);
+			Activist instance = entityManager.find(Activist.class, id);
 			log.debug("get successful");
 			return instance;
 		} catch (RuntimeException re) {

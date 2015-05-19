@@ -1,6 +1,6 @@
 package ru.xaptenodytes.activizm.model;
 
-// Generated 18.05.2015 14:47:17 by Hibernate Tools 4.3.1
+// Generated 19.05.2015 16:37:34 by Hibernate Tools 4.3.1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,32 +18,32 @@ import org.hibernate.annotations.Parameter;
  */
 @Entity
 @Table(name = "cities", catalog = "activizm")
-public class Cities implements java.io.Serializable {
+public class City implements java.io.Serializable {
 
 	private Integer cityId;
-	private Activists activists;
-	private Coordinators coordinators;
-	private Events events;
-	private Subcommunities subcommunities;
+	private Activist activist;
+	private Coordinator coordinator;
+	private Event event;
+	private Subcommunity subcommunity;
 	private String cityName;
 
-	public Cities() {
+	public City() {
 	}
 
-	public Cities(Activists activists, Coordinators coordinators,
-			Events events, Subcommunities subcommunities) {
-		this.activists = activists;
-		this.coordinators = coordinators;
-		this.events = events;
-		this.subcommunities = subcommunities;
+	public City(Activist activist, Coordinator coordinator,
+			Event event, Subcommunity subcommunity) {
+		this.activist = activist;
+		this.coordinator = coordinator;
+		this.event = event;
+		this.subcommunity = subcommunity;
 	}
 
-	public Cities(Activists activists, Coordinators coordinators,
-			Events events, Subcommunities subcommunities, String cityName) {
-		this.activists = activists;
-		this.coordinators = coordinators;
-		this.events = events;
-		this.subcommunities = subcommunities;
+	public City(Activist activist, Coordinator coordinator,
+			Event event, Subcommunity subcommunity, String cityName) {
+		this.activist = activist;
+		this.coordinator = coordinator;
+		this.event = event;
+		this.subcommunity = subcommunity;
 		this.cityName = cityName;
 	}
 
@@ -61,42 +61,42 @@ public class Cities implements java.io.Serializable {
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
-	public Activists getActivists() {
-		return this.activists;
+	public Activist getActivists() {
+		return this.activist;
 	}
 
-	public void setActivists(Activists activists) {
-		this.activists = activists;
-	}
-
-	@OneToOne(fetch = FetchType.LAZY)
-	@PrimaryKeyJoinColumn
-	public Coordinators getCoordinators() {
-		return this.coordinators;
-	}
-
-	public void setCoordinators(Coordinators coordinators) {
-		this.coordinators = coordinators;
+	public void setActivists(Activist activist) {
+		this.activist = activist;
 	}
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
-	public Events getEvents() {
-		return this.events;
+	public Coordinator getCoordinators() {
+		return this.coordinator;
 	}
 
-	public void setEvents(Events events) {
-		this.events = events;
+	public void setCoordinators(Coordinator coordinator) {
+		this.coordinator = coordinator;
 	}
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
-	public Subcommunities getSubcommunities() {
-		return this.subcommunities;
+	public Event getEvents() {
+		return this.event;
 	}
 
-	public void setSubcommunities(Subcommunities subcommunities) {
-		this.subcommunities = subcommunities;
+	public void setEvents(Event event) {
+		this.event = event;
+	}
+
+	@OneToOne(fetch = FetchType.LAZY)
+	@PrimaryKeyJoinColumn
+	public Subcommunity getSubcommunities() {
+		return this.subcommunity;
+	}
+
+	public void setSubcommunities(Subcommunity subcommunity) {
+		this.subcommunity = subcommunity;
 	}
 
 	@Column(name = "CityName", length = 200)

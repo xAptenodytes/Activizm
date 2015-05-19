@@ -1,6 +1,6 @@
 package ru.xaptenodytes.activizm.model;
 
-// Generated 18.05.2015 14:47:17 by Hibernate Tools 4.3.1
+// Generated 19.05.2015 16:37:34 by Hibernate Tools 4.3.1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,25 +17,25 @@ import javax.persistence.UniqueConstraint;
  */
 @Entity
 @Table(name = "phones", catalog = "activizm", uniqueConstraints = @UniqueConstraint(columnNames = "activistId"))
-public class Phones implements java.io.Serializable {
+public class Phone implements java.io.Serializable {
 
 	private Integer phoneId;
 	private String phoneNumber;
 	private int activistId;
-	private Activists activists;
+	private Activist activist;
 
-	public Phones() {
+	public Phone() {
 	}
 
-	public Phones(String phoneNumber, int activistId) {
+	public Phone(String phoneNumber, int activistId) {
 		this.phoneNumber = phoneNumber;
 		this.activistId = activistId;
 	}
 
-	public Phones(String phoneNumber, int activistId, Activists activists) {
+	public Phone(String phoneNumber, int activistId, Activist activist) {
 		this.phoneNumber = phoneNumber;
 		this.activistId = activistId;
-		this.activists = activists;
+		this.activist = activist;
 	}
 
 	@Id
@@ -68,12 +68,12 @@ public class Phones implements java.io.Serializable {
 	}
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "events")
-	public Activists getActivists() {
-		return this.activists;
+	public Activist getActivists() {
+		return this.activist;
 	}
 
-	public void setActivists(Activists activists) {
-		this.activists = activists;
+	public void setActivists(Activist activist) {
+		this.activist = activist;
 	}
 
 }

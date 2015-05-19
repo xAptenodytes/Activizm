@@ -1,6 +1,6 @@
 package ru.xaptenodytes.activizm.model;
 
-// Generated 18.05.2015 14:47:17 by Hibernate Tools 4.3.1
+// Generated 19.05.2015 16:37:34 by Hibernate Tools 4.3.1
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -25,11 +25,11 @@ import javax.persistence.UniqueConstraint;
 		@UniqueConstraint(columnNames = "activistId"),
 		@UniqueConstraint(columnNames = "cityId"),
 		@UniqueConstraint(columnNames = "requersterId") })
-public class Events implements java.io.Serializable {
+public class Event implements java.io.Serializable {
 
 	private Integer eventId;
-	private Coordinators coordinators;
-	private EventType eventType;
+	private Coordinator coordinator;
+	private Eventtype eventtype;
 	private int requersterId;
 	private Integer activistId;
 	private Date eventStartDate;
@@ -42,14 +42,14 @@ public class Events implements java.io.Serializable {
 	private Date eventEndDate;
 	private String commentEnd;
 	private Integer cityId;
-	private Activists activists;
+	private Activist activist;
 	private Requester requester;
-	private Cities cities;
+	private City city;
 
-	public Events() {
+	public Event() {
 	}
 
-	public Events(int requersterId, Date eventStartDate,
+	public Event(int requersterId, Date eventStartDate,
 			double departurePointX, double departurePointY) {
 		this.requersterId = requersterId;
 		this.eventStartDate = eventStartDate;
@@ -57,15 +57,15 @@ public class Events implements java.io.Serializable {
 		this.departurePointY = departurePointY;
 	}
 
-	public Events(Coordinators coordinators, EventType eventType,
+	public Event(Coordinator coordinator, Eventtype eventtype,
 			int requersterId, Integer activistId, Date eventStartDate,
 			double departurePointX, double departurePointY,
 			Double arrivalPointX, Double arrivalPointY, String comment,
 			Boolean status1, Date eventEndDate, String commentEnd,
-			Integer cityId, Activists activists, Requester requester,
-			Cities cities) {
-		this.coordinators = coordinators;
-		this.eventType = eventType;
+			Integer cityId, Activist activist, Requester requester,
+			City city) {
+		this.coordinator = coordinator;
+		this.eventtype = eventtype;
 		this.requersterId = requersterId;
 		this.activistId = activistId;
 		this.eventStartDate = eventStartDate;
@@ -78,9 +78,9 @@ public class Events implements java.io.Serializable {
 		this.eventEndDate = eventEndDate;
 		this.commentEnd = commentEnd;
 		this.cityId = cityId;
-		this.activists = activists;
+		this.activist = activist;
 		this.requester = requester;
-		this.cities = cities;
+		this.city = city;
 	}
 
 	@Id
@@ -96,22 +96,22 @@ public class Events implements java.io.Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "coordinatorId")
-	public Coordinators getCoordinators() {
-		return this.coordinators;
+	public Coordinator getCoordinators() {
+		return this.coordinator;
 	}
 
-	public void setCoordinators(Coordinators coordinators) {
-		this.coordinators = coordinators;
+	public void setCoordinators(Coordinator coordinator) {
+		this.coordinator = coordinator;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "EventTypeId")
-	public EventType getEventtype() {
-		return this.eventType;
+	public Eventtype getEventtype() {
+		return this.eventtype;
 	}
 
-	public void setEventtype(EventType eventType) {
-		this.eventType = eventType;
+	public void setEventtype(Eventtype eventtype) {
+		this.eventtype = eventtype;
 	}
 
 	@Column(name = "requersterId", unique = true, nullable = false)
@@ -225,12 +225,12 @@ public class Events implements java.io.Serializable {
 	}
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "events")
-	public Activists getActivists() {
-		return this.activists;
+	public Activist getActivists() {
+		return this.activist;
 	}
 
-	public void setActivists(Activists activists) {
-		this.activists = activists;
+	public void setActivists(Activist activist) {
+		this.activist = activist;
 	}
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "events")
@@ -243,12 +243,12 @@ public class Events implements java.io.Serializable {
 	}
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "activists")
-	public Cities getCities() {
-		return this.cities;
+	public City getCities() {
+		return this.city;
 	}
 
-	public void setCities(Cities cities) {
-		this.cities = cities;
+	public void setCities(City city) {
+		this.city = city;
 	}
 
 }

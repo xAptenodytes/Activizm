@@ -1,6 +1,6 @@
 package ru.xaptenodytes.activizm.model;
 
-// Generated 18.05.2015 14:47:17 by Hibernate Tools 4.3.1
+// Generated 19.05.2015 16:37:34 by Hibernate Tools 4.3.1
 
 import java.util.Date;
 import java.util.HashSet;
@@ -27,11 +27,11 @@ import org.hibernate.annotations.Parameter;
  */
 @Entity
 @Table(name = "coordinators", catalog = "activizm", uniqueConstraints = @UniqueConstraint(columnNames = "cityId"))
-public class Coordinators implements java.io.Serializable {
+public class Coordinator implements java.io.Serializable {
 
 	private Integer coordinatorId;
-	private Activists activists;
-	private Subcommunities subcommunities;
+	private Activist activist;
+	private Subcommunity subcommunity;
 	private Integer vkId;
 	private Integer fbId;
 	private String email;
@@ -44,28 +44,28 @@ public class Coordinators implements java.io.Serializable {
 	private Date desactivateDate;
 	private Integer cityId;
 	private Set eventses = new HashSet(0);
-	private Cities cities;
+	private City city;
 
-	public Coordinators() {
+	public Coordinator() {
 	}
 
-	public Coordinators(Activists activists, Subcommunities subcommunities,
+	public Coordinator(Activist activist, Subcommunity subcommunity,
 			String passwdHash, String surname, String name1, Date registrDate) {
-		this.activists = activists;
-		this.subcommunities = subcommunities;
+		this.activist = activist;
+		this.subcommunity = subcommunity;
 		this.passwdHash = passwdHash;
 		this.surname = surname;
 		this.name1 = name1;
 		this.registrDate = registrDate;
 	}
 
-	public Coordinators(Activists activists, Subcommunities subcommunities,
+	public Coordinator(Activist activist, Subcommunity subcommunity,
 			Integer vkId, Integer fbId, String email, String passwdHash,
 			String surname, String name1, String name2, Date registrDate,
 			Date activateDate, Date desactivateDate, Integer cityId,
-			Set eventses, Cities cities) {
-		this.activists = activists;
-		this.subcommunities = subcommunities;
+			Set eventses, City city) {
+		this.activist = activist;
+		this.subcommunity = subcommunity;
 		this.vkId = vkId;
 		this.fbId = fbId;
 		this.email = email;
@@ -78,7 +78,7 @@ public class Coordinators implements java.io.Serializable {
 		this.desactivateDate = desactivateDate;
 		this.cityId = cityId;
 		this.eventses = eventses;
-		this.cities = cities;
+		this.city = city;
 	}
 
 	@GenericGenerator(name = "generator", strategy = "foreign", parameters = @Parameter(name = "property", value = "activists"))
@@ -95,22 +95,22 @@ public class Coordinators implements java.io.Serializable {
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
-	public Activists getActivists() {
-		return this.activists;
+	public Activist getActivists() {
+		return this.activist;
 	}
 
-	public void setActivists(Activists activists) {
-		this.activists = activists;
+	public void setActivists(Activist activist) {
+		this.activist = activist;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "subcomunityId", nullable = false)
-	public Subcommunities getSubcommunities() {
-		return this.subcommunities;
+	public Subcommunity getSubcommunities() {
+		return this.subcommunity;
 	}
 
-	public void setSubcommunities(Subcommunities subcommunities) {
-		this.subcommunities = subcommunities;
+	public void setSubcommunities(Subcommunity subcommunity) {
+		this.subcommunity = subcommunity;
 	}
 
 	@Column(name = "vkID")
@@ -225,12 +225,12 @@ public class Coordinators implements java.io.Serializable {
 	}
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "activists")
-	public Cities getCities() {
-		return this.cities;
+	public City getCities() {
+		return this.city;
 	}
 
-	public void setCities(Cities cities) {
-		this.cities = cities;
+	public void setCities(City city) {
+		this.city = city;
 	}
 
 }

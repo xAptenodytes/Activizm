@@ -1,6 +1,6 @@
 package ru.xaptenodytes.activizm.model;
 
-// Generated 18.05.2015 14:47:17 by Hibernate Tools 4.3.1
+// Generated 19.05.2015 16:37:34 by Hibernate Tools 4.3.1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -22,33 +22,33 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "subcommunities", catalog = "activizm", uniqueConstraints = {
 		@UniqueConstraint(columnNames = "CityId"),
 		@UniqueConstraint(columnNames = "ComunityId") })
-public class Subcommunities implements java.io.Serializable {
+public class Subcommunity implements java.io.Serializable {
 
 	private Integer subcomunityId;
 	private int comunityId;
 	private String subcomunityName;
 	private Integer cityId;
 	private Set coordinatorses = new HashSet(0);
-	private Communities communities;
-	private Cities cities;
+	private Community community;
+	private City city;
 
-	public Subcommunities() {
+	public Subcommunity() {
 	}
 
-	public Subcommunities(int comunityId, String subcomunityName) {
+	public Subcommunity(int comunityId, String subcomunityName) {
 		this.comunityId = comunityId;
 		this.subcomunityName = subcomunityName;
 	}
 
-	public Subcommunities(int comunityId, String subcomunityName,
-			Integer cityId, Set coordinatorses, Communities communities,
-			Cities cities) {
+	public Subcommunity(int comunityId, String subcomunityName,
+			Integer cityId, Set coordinatorses, Community community,
+			City city) {
 		this.comunityId = comunityId;
 		this.subcomunityName = subcomunityName;
 		this.cityId = cityId;
 		this.coordinatorses = coordinatorses;
-		this.communities = communities;
-		this.cities = cities;
+		this.community = community;
+		this.city = city;
 	}
 
 	@Id
@@ -99,21 +99,21 @@ public class Subcommunities implements java.io.Serializable {
 	}
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "subcommunities")
-	public Communities getCommunities() {
-		return this.communities;
+	public Community getCommunities() {
+		return this.community;
 	}
 
-	public void setCommunities(Communities communities) {
-		this.communities = communities;
+	public void setCommunities(Community community) {
+		this.community = community;
 	}
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "activists")
-	public Cities getCities() {
-		return this.cities;
+	public City getCities() {
+		return this.city;
 	}
 
-	public void setCities(Cities cities) {
-		this.cities = cities;
+	public void setCities(City city) {
+		this.city = city;
 	}
 
 }

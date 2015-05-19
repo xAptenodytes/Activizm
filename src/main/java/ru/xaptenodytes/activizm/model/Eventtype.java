@@ -1,6 +1,6 @@
 package ru.xaptenodytes.activizm.model;
 
-// Generated 18.05.2015 14:47:17 by Hibernate Tools 4.3.1
+// Generated 19.05.2015 16:37:34 by Hibernate Tools 4.3.1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -21,23 +21,23 @@ import org.hibernate.annotations.Parameter;
  */
 @Entity
 @Table(name = "eventtype", catalog = "activizm")
-public class EventType implements java.io.Serializable {
+public class Eventtype implements java.io.Serializable {
 
 	private Integer eventTypeId;
-	private OrganisationEventType organisationEventType;
+	private Organisationeventtype organisationeventtype;
 	private String eventName;
 	private Set eventses = new HashSet(0);
 
-	public EventType() {
+	public Eventtype() {
 	}
 
-	public EventType(OrganisationEventType organisationEventType) {
-		this.organisationEventType = organisationEventType;
+	public Eventtype(Organisationeventtype organisationeventtype) {
+		this.organisationeventtype = organisationeventtype;
 	}
 
-	public EventType(OrganisationEventType organisationEventType,
+	public Eventtype(Organisationeventtype organisationeventtype,
 			String eventName, Set eventses) {
-		this.organisationEventType = organisationEventType;
+		this.organisationeventtype = organisationeventtype;
 		this.eventName = eventName;
 		this.eventses = eventses;
 	}
@@ -56,13 +56,13 @@ public class EventType implements java.io.Serializable {
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
-	public OrganisationEventType getOrganisationeventtype() {
-		return this.organisationEventType;
+	public Organisationeventtype getOrganisationeventtype() {
+		return this.organisationeventtype;
 	}
 
 	public void setOrganisationeventtype(
-			OrganisationEventType organisationEventType) {
-		this.organisationEventType = organisationEventType;
+			Organisationeventtype organisationeventtype) {
+		this.organisationeventtype = organisationeventtype;
 	}
 
 	@Column(name = "EventName", length = 150)

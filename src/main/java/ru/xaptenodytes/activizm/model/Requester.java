@@ -1,6 +1,6 @@
 package ru.xaptenodytes.activizm.model;
 
-// Generated 18.05.2015 14:47:17 by Hibernate Tools 4.3.1
+// Generated 19.05.2015 16:37:34 by Hibernate Tools 4.3.1
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -24,7 +24,7 @@ import org.hibernate.annotations.Parameter;
 public class Requester implements java.io.Serializable {
 
 	private Integer requesterId;
-	private Events events;
+	private Event event;
 	private Integer vkId;
 	private Integer fbId;
 	private String email;
@@ -35,17 +35,17 @@ public class Requester implements java.io.Serializable {
 	public Requester() {
 	}
 
-	public Requester(Events events, String hashPasswd, String phoneNumber,
+	public Requester(Event event, String hashPasswd, String phoneNumber,
 			Date registrDate) {
-		this.events = events;
+		this.event = event;
 		this.hashPasswd = hashPasswd;
 		this.phoneNumber = phoneNumber;
 		this.registrDate = registrDate;
 	}
 
-	public Requester(Events events, Integer vkId, Integer fbId, String email,
+	public Requester(Event event, Integer vkId, Integer fbId, String email,
 			String hashPasswd, String phoneNumber, Date registrDate) {
-		this.events = events;
+		this.event = event;
 		this.vkId = vkId;
 		this.fbId = fbId;
 		this.email = email;
@@ -68,12 +68,12 @@ public class Requester implements java.io.Serializable {
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
-	public Events getEvents() {
-		return this.events;
+	public Event getEvents() {
+		return this.event;
 	}
 
-	public void setEvents(Events events) {
-		this.events = events;
+	public void setEvents(Event event) {
+		this.event = event;
 	}
 
 	@Column(name = "vkID")
