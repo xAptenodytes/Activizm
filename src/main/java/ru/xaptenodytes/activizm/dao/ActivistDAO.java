@@ -8,5 +8,7 @@ public interface ActivistDAO {
 	public Activist getActivistById(Integer id);
 	public Activist getActivistByLogin(String login);
 	public List<Activist> getActivists();
-	public List<Activist> getActivistsByCriteria(Activist activist);		
+	public List<Activist> getActivistsByCriteria(Activist activist);
+	public void addActivist(Activist activist);
+	public void suspendActivist(Integer activistId);
 }
