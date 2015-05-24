@@ -2,16 +2,33 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
 
 <hibernate-reverse-engineering>
-  <table-filter match-catalog="activizm" match-name="activists"/>
-  <table-filter match-catalog="activizm" match-name="cities"/>
-  <table-filter match-catalog="activizm" match-name="communities"/>
-  <table-filter match-catalog="activizm" match-name="coordinators"/>
-  <table-filter match-catalog="activizm" match-name="events"/>
-  <table-filter match-catalog="activizm" match-name="eventtype"/>
-  <table-filter match-catalog="activizm" match-name="organisationeventtype"/>
-  <table-filter match-catalog="activizm" match-name="phones"/>
-  <table-filter match-catalog="activizm" match-name="requester"/>
-  <table-filter match-catalog="activizm" match-name="schedulewithdate"/>
-  <table-filter match-catalog="activizm" match-name="schedulewithweekdays"/>
-  <table-filter match-catalog="activizm" match-name="subcommunities"/>
+	<table-filter match-name="areaofresponsibility"
+		match-catalog="activizm">
+	</table-filter>
+	<table-filter match-name="cities" match-catalog="activizm"></table-filter>
+	<table-filter match-name="communities" match-catalog="activizm"></table-filter>
+	<table-filter match-name="events" match-catalog="activizm"></table-filter>
+	<table-filter match-name="eventtype" match-catalog="activizm"></table-filter>
+	<table-filter match-name="organisationeventtype"
+		match-catalog="activizm">
+	</table-filter>
+	<table-filter match-name="phones" match-catalog="activizm"></table-filter>
+	<table-filter match-name="roles" match-catalog="activizm"></table-filter>
+	<table-filter match-name="schedulewithdate"
+		match-catalog="activizm">
+	</table-filter>
+	<table-filter match-name="schedulewithweekdays"
+		match-catalog="activizm">
+	</table-filter>
+	<table-filter match-name="subcommunities"
+		match-catalog="activizm">
+	</table-filter>
+	<table-filter match-name="userroleevents"
+		match-catalog="activizm">
+	</table-filter>
+	<table-filter match-name="userroles" match-catalog="activizm"></table-filter>
+	<table-filter match-name="users" match-catalog="activizm"></table-filter>
+	<table-filter match-name="usersubcommunity"
+		match-catalog="activizm">
+	</table-filter>
 </hibernate-reverse-engineering>
