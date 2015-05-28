@@ -9,23 +9,23 @@ import javax.persistence.PersistenceContext;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import ru.xaptenodytes.activizm.model.Activist;
+import ru.xaptenodytes.activizm.model.User;
 
 /**
- * Home object for domain model class Activists.
- * @see ru.xaptenodytes.activizm.dao.Activist
+ * Home object for domain model class Users.
+ * @see ru.xaptenodytes.activizm.dao.User
  * @author Hibernate Tools
  */
 @Stateless
-public class ActivistsHome {
+public class UsersHome {
 
-	private static final Log log = LogFactory.getLog(ActivistsHome.class);
+	private static final Log log = LogFactory.getLog(UsersHome.class);
 
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	public void persist(Activist transientInstance) {
-		log.debug("persisting Activists instance");
+	public void persist(User transientInstance) {
+		log.debug("persisting Users instance");
 		try {
 			entityManager.persist(transientInstance);
 			log.debug("persist successful");
@@ -35,8 +35,8 @@ public class ActivistsHome {
 		}
 	}
 
-	public void remove(Activist persistentInstance) {
-		log.debug("removing Activists instance");
+	public void remove(User persistentInstance) {
+		log.debug("removing Users instance");
 		try {
 			entityManager.remove(persistentInstance);
 			log.debug("remove successful");
@@ -46,10 +46,10 @@ public class ActivistsHome {
 		}
 	}
 
-	public Activist merge(Activist detachedInstance) {
-		log.debug("merging Activists instance");
+	public User merge(User detachedInstance) {
+		log.debug("merging Users instance");
 		try {
-			Activist result = entityManager.merge(detachedInstance);
+			User result = entityManager.merge(detachedInstance);
 			log.debug("merge successful");
 			return result;
 		} catch (RuntimeException re) {
@@ -58,10 +58,10 @@ public class ActivistsHome {
 		}
 	}
 
-	public Activist findById(Integer id) {
-		log.debug("getting Activists instance with id: " + id);
+	public User findById(Integer id) {
+		log.debug("getting Users instance with id: " + id);
 		try {
-			Activist instance = entityManager.find(Activist.class, id);
+			User instance = entityManager.find(User.class, id);
 			log.debug("get successful");
 			return instance;
 		} catch (RuntimeException re) {

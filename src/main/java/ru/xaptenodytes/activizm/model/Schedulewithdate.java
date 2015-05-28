@@ -29,7 +29,7 @@ public class Schedulewithdate implements java.io.Serializable {
 	private Integer radius;
 	private Date beginDate;
 	private Date endDate;
-	private Users users;
+	private User user;
 
 	public Schedulewithdate() {
 	}
@@ -39,14 +39,14 @@ public class Schedulewithdate implements java.io.Serializable {
 	}
 
 	public Schedulewithdate(int userId, Double mapPointX, Double mapPointY,
-			Integer radius, Date beginDate, Date endDate, Users users) {
+			Integer radius, Date beginDate, Date endDate, User user) {
 		this.userId = userId;
 		this.mapPointX = mapPointX;
 		this.mapPointY = mapPointY;
 		this.radius = radius;
 		this.beginDate = beginDate;
 		this.endDate = endDate;
-		this.users = users;
+		this.user = user;
 	}
 
 	@Id
@@ -117,12 +117,12 @@ public class Schedulewithdate implements java.io.Serializable {
 	}
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "phones")
-	public Users getUsers() {
-		return this.users;
+	public User getUsers() {
+		return this.user;
 	}
 
-	public void setUsers(Users users) {
-		this.users = users;
+	public void setUsers(User user) {
+		this.user = user;
 	}
 
 }

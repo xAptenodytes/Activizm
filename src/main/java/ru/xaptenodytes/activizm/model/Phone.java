@@ -17,25 +17,25 @@ import javax.persistence.UniqueConstraint;
  */
 @Entity
 @Table(name = "phones", catalog = "activizm", uniqueConstraints = @UniqueConstraint(columnNames = "userId"))
-public class Phones implements java.io.Serializable {
+public class Phone implements java.io.Serializable {
 
 	private Integer phoneId;
 	private String phoneNumber;
 	private int userId;
-	private Users users;
+	private User user;
 
-	public Phones() {
+	public Phone() {
 	}
 
-	public Phones(String phoneNumber, int userId) {
+	public Phone(String phoneNumber, int userId) {
 		this.phoneNumber = phoneNumber;
 		this.userId = userId;
 	}
 
-	public Phones(String phoneNumber, int userId, Users users) {
+	public Phone(String phoneNumber, int userId, User user) {
 		this.phoneNumber = phoneNumber;
 		this.userId = userId;
-		this.users = users;
+		this.user = user;
 	}
 
 	@Id
@@ -68,12 +68,12 @@ public class Phones implements java.io.Serializable {
 	}
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "phones")
-	public Users getUsers() {
-		return this.users;
+	public User getUsers() {
+		return this.user;
 	}
 
-	public void setUsers(Users users) {
-		this.users = users;
+	public void setUsers(User user) {
+		this.user = user;
 	}
 
 }

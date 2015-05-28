@@ -18,21 +18,21 @@ import org.hibernate.annotations.Parameter;
  */
 @Entity
 @Table(name = "roles", catalog = "activizm")
-public class Roles implements java.io.Serializable {
+public class Role implements java.io.Serializable {
 
 	private Integer roleId;
-	private Userroles userroles;
+	private Userrole userrole;
 	private String roleName;
 
-	public Roles() {
+	public Role() {
 	}
 
-	public Roles(Userroles userroles) {
-		this.userroles = userroles;
+	public Role(Userrole userrole) {
+		this.userrole = userrole;
 	}
 
-	public Roles(Userroles userroles, String roleName) {
-		this.userroles = userroles;
+	public Role(Userrole userrole, String roleName) {
+		this.userrole = userrole;
 		this.roleName = roleName;
 	}
 
@@ -50,12 +50,12 @@ public class Roles implements java.io.Serializable {
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
-	public Userroles getUserroles() {
-		return this.userroles;
+	public Userrole getUserroles() {
+		return this.userrole;
 	}
 
-	public void setUserroles(Userroles userroles) {
-		this.userroles = userroles;
+	public void setUserroles(Userrole userrole) {
+		this.userrole = userrole;
 	}
 
 	@Column(name = "roleName", length = 50)

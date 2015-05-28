@@ -21,24 +21,24 @@ import org.hibernate.annotations.Parameter;
  */
 @Entity
 @Table(name = "communities", catalog = "activizm")
-public class Communities implements java.io.Serializable {
+public class Community implements java.io.Serializable {
 
 	private Integer comunityId;
-	private Subcommunities subcommunities;
+	private Subcommunity subcommunity;
 	private String comunityName;
 	private Set organisationeventtypes = new HashSet(0);
 
-	public Communities() {
+	public Community() {
 	}
 
-	public Communities(Subcommunities subcommunities, String comunityName) {
-		this.subcommunities = subcommunities;
+	public Community(Subcommunity subcommunity, String comunityName) {
+		this.subcommunity = subcommunity;
 		this.comunityName = comunityName;
 	}
 
-	public Communities(Subcommunities subcommunities, String comunityName,
+	public Community(Subcommunity subcommunity, String comunityName,
 			Set organisationeventtypes) {
-		this.subcommunities = subcommunities;
+		this.subcommunity = subcommunity;
 		this.comunityName = comunityName;
 		this.organisationeventtypes = organisationeventtypes;
 	}
@@ -57,12 +57,12 @@ public class Communities implements java.io.Serializable {
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
-	public Subcommunities getSubcommunities() {
-		return this.subcommunities;
+	public Subcommunity getSubcommunities() {
+		return this.subcommunity;
 	}
 
-	public void setSubcommunities(Subcommunities subcommunities) {
-		this.subcommunities = subcommunities;
+	public void setSubcommunities(Subcommunity subcommunity) {
+		this.subcommunity = subcommunity;
 	}
 
 	@Column(name = "comunityName", nullable = false, length = 150)

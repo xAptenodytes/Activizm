@@ -18,28 +18,28 @@ import org.hibernate.annotations.Parameter;
  */
 @Entity
 @Table(name = "cities", catalog = "activizm")
-public class Cities implements java.io.Serializable {
+public class City implements java.io.Serializable {
 
 	private Integer cityId;
-	private Events events;
-	private Subcommunities subcommunities;
-	private Users users;
+	private Event event;
+	private Subcommunity subcommunity;
+	private User user;
 	private String cityName;
 
-	public Cities() {
+	public City() {
 	}
 
-	public Cities(Events events, Subcommunities subcommunities, Users users) {
-		this.events = events;
-		this.subcommunities = subcommunities;
-		this.users = users;
+	public City(Event event, Subcommunity subcommunity, User user) {
+		this.event = event;
+		this.subcommunity = subcommunity;
+		this.user = user;
 	}
 
-	public Cities(Events events, Subcommunities subcommunities, Users users,
+	public City(Event event, Subcommunity subcommunity, User user,
 			String cityName) {
-		this.events = events;
-		this.subcommunities = subcommunities;
-		this.users = users;
+		this.event = event;
+		this.subcommunity = subcommunity;
+		this.user = user;
 		this.cityName = cityName;
 	}
 
@@ -57,32 +57,32 @@ public class Cities implements java.io.Serializable {
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
-	public Events getEvents() {
-		return this.events;
+	public Event getEvents() {
+		return this.event;
 	}
 
-	public void setEvents(Events events) {
-		this.events = events;
-	}
-
-	@OneToOne(fetch = FetchType.LAZY)
-	@PrimaryKeyJoinColumn
-	public Subcommunities getSubcommunities() {
-		return this.subcommunities;
-	}
-
-	public void setSubcommunities(Subcommunities subcommunities) {
-		this.subcommunities = subcommunities;
+	public void setEvents(Event event) {
+		this.event = event;
 	}
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
-	public Users getUsers() {
-		return this.users;
+	public Subcommunity getSubcommunities() {
+		return this.subcommunity;
 	}
 
-	public void setUsers(Users users) {
-		this.users = users;
+	public void setSubcommunities(Subcommunity subcommunity) {
+		this.subcommunity = subcommunity;
+	}
+
+	@OneToOne(fetch = FetchType.LAZY)
+	@PrimaryKeyJoinColumn
+	public User getUsers() {
+		return this.user;
+	}
+
+	public void setUsers(User user) {
+		this.user = user;
 	}
 
 	@Column(name = "CityName", length = 200)

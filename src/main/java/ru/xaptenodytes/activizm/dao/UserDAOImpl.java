@@ -6,51 +6,51 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import ru.xaptenodytes.activizm.model.Activist;
+import ru.xaptenodytes.activizm.model.User;
 
 @Repository
-public class ActivistDAOImpl implements ActivistDAO {
+public class UserDAOImpl implements UserDAO {
 	
 	@Autowired
     private SessionFactory sessionFactory;
 	
 	@Override
-	public Activist getActivistById(Integer id) {
+	public User getUserById(Integer id) {
 		
 		return null;
 	}
 
 	@Override
-	public Activist getActivistByLogin(String login) {
+	public User getUserByLogin(String login) {
 		
 		return null;
 	}
 
 	@Override
-	public List<Activist> getActivists() {
+	public List<User> getUsers() {
 		
 		return null;
 	}
 
 	@Override
-	public List<Activist> getActivistsByCriteria(Activist activist) {
+	public List<User> getUsersByCriteria(User user) {
 		
 		return null;
 	}
 
 	@Override
-	public void addActivist(Activist activist) {
+	public void addUser(User user) {
 		
 		
 	}
 
 	@Override
-	public void suspendActivist(Integer activistId) {
+	public void suspendUser(Integer userId) {
 		
 		
 	}
 
-	private void updateOrSave(Activist activist) {
+	private void updateOrSave(User user) {
 		
 		
 	}

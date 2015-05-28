@@ -30,7 +30,7 @@ public class Schedulewithweekdays implements java.io.Serializable {
 	private Integer weekday;
 	private Date beginTime;
 	private Date endTime;
-	private Users users;
+	private User user;
 
 	public Schedulewithweekdays() {
 	}
@@ -41,7 +41,7 @@ public class Schedulewithweekdays implements java.io.Serializable {
 
 	public Schedulewithweekdays(int userId, Double mapPointX, Double mapPointY,
 			Integer radius, Integer weekday, Date beginTime, Date endTime,
-			Users users) {
+			User user) {
 		this.userId = userId;
 		this.mapPointX = mapPointX;
 		this.mapPointY = mapPointY;
@@ -49,7 +49,7 @@ public class Schedulewithweekdays implements java.io.Serializable {
 		this.weekday = weekday;
 		this.beginTime = beginTime;
 		this.endTime = endTime;
-		this.users = users;
+		this.user = user;
 	}
 
 	@Id
@@ -129,12 +129,12 @@ public class Schedulewithweekdays implements java.io.Serializable {
 	}
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "phones")
-	public Users getUsers() {
-		return this.users;
+	public User getUsers() {
+		return this.user;
 	}
 
-	public void setUsers(Users users) {
-		this.users = users;
+	public void setUsers(User user) {
+		this.user = user;
 	}
 
 }

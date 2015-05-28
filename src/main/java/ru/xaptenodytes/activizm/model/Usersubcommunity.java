@@ -22,23 +22,23 @@ import javax.persistence.UniqueConstraint;
 public class Usersubcommunity implements java.io.Serializable {
 
 	private Integer usersubcommunityId;
-	private Subcommunities subcommunities;
+	private Subcommunity subcommunity;
 	private int userId;
-	private Users users;
+	private User user;
 
 	public Usersubcommunity() {
 	}
 
-	public Usersubcommunity(Subcommunities subcommunities, int userId) {
-		this.subcommunities = subcommunities;
+	public Usersubcommunity(Subcommunity subcommunity, int userId) {
+		this.subcommunity = subcommunity;
 		this.userId = userId;
 	}
 
-	public Usersubcommunity(Subcommunities subcommunities, int userId,
-			Users users) {
-		this.subcommunities = subcommunities;
+	public Usersubcommunity(Subcommunity subcommunity, int userId,
+			User user) {
+		this.subcommunity = subcommunity;
 		this.userId = userId;
-		this.users = users;
+		this.user = user;
 	}
 
 	@Id
@@ -54,12 +54,12 @@ public class Usersubcommunity implements java.io.Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "subcommunityId", nullable = false)
-	public Subcommunities getSubcommunities() {
-		return this.subcommunities;
+	public Subcommunity getSubcommunities() {
+		return this.subcommunity;
 	}
 
-	public void setSubcommunities(Subcommunities subcommunities) {
-		this.subcommunities = subcommunities;
+	public void setSubcommunities(Subcommunity subcommunity) {
+		this.subcommunity = subcommunity;
 	}
 
 	@Column(name = "userId", unique = true, nullable = false)
@@ -72,12 +72,12 @@ public class Usersubcommunity implements java.io.Serializable {
 	}
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "phones")
-	public Users getUsers() {
-		return this.users;
+	public User getUsers() {
+		return this.user;
 	}
 
-	public void setUsers(Users users) {
-		this.users = users;
+	public void setUsers(User user) {
+		this.user = user;
 	}
 
 }

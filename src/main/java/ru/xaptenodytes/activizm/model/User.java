@@ -27,10 +27,10 @@ import org.hibernate.annotations.Parameter;
 @Table(name = "users", catalog = "activizm", uniqueConstraints = {
 		@UniqueConstraint(columnNames = "cityId"),
 		@UniqueConstraint(columnNames = "coordinatorId") })
-public class Users implements java.io.Serializable {
+public class User implements java.io.Serializable {
 
 	private int userId;
-	private Phones phones;
+	private Phone phone;
 	private Schedulewithdate schedulewithdate;
 	private Schedulewithweekdays schedulewithweekdays;
 	private Usersubcommunity usersubcommunity;
@@ -46,17 +46,17 @@ public class Users implements java.io.Serializable {
 	private Boolean status;
 	private Integer cityId;
 	private Integer districtId;
-	private Cities cities;
+	private City city;
 	private Set userroleses = new HashSet(0);
 
-	public Users() {
+	public User() {
 	}
 
-	public Users(Phones phones, Schedulewithdate schedulewithdate,
+	public User(Phone phone, Schedulewithdate schedulewithdate,
 			Schedulewithweekdays schedulewithweekdays,
 			Usersubcommunity usersubcommunity, String email, String passwdHash,
 			String surname, String name1, Date registrDate, int coordinatorId) {
-		this.phones = phones;
+		this.phone = phone;
 		this.schedulewithdate = schedulewithdate;
 		this.schedulewithweekdays = schedulewithweekdays;
 		this.usersubcommunity = usersubcommunity;
@@ -68,14 +68,14 @@ public class Users implements java.io.Serializable {
 		this.coordinatorId = coordinatorId;
 	}
 
-	public Users(Phones phones, Schedulewithdate schedulewithdate,
+	public User(Phone phone, Schedulewithdate schedulewithdate,
 			Schedulewithweekdays schedulewithweekdays,
 			Usersubcommunity usersubcommunity, String email, String passwdHash,
 			String surname, String name1, String name2, Date registrDate,
 			Date activateDate, Date desactivateDate, int coordinatorId,
-			Boolean status, Integer cityId, Integer districtId, Cities cities,
+			Boolean status, Integer cityId, Integer districtId, City city,
 			Set userroleses) {
-		this.phones = phones;
+		this.phone = phone;
 		this.schedulewithdate = schedulewithdate;
 		this.schedulewithweekdays = schedulewithweekdays;
 		this.usersubcommunity = usersubcommunity;
@@ -91,7 +91,7 @@ public class Users implements java.io.Serializable {
 		this.status = status;
 		this.cityId = cityId;
 		this.districtId = districtId;
-		this.cities = cities;
+		this.city = city;
 		this.userroleses = userroleses;
 	}
 
@@ -109,12 +109,12 @@ public class Users implements java.io.Serializable {
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
-	public Phones getPhones() {
-		return this.phones;
+	public Phone getPhones() {
+		return this.phone;
 	}
 
-	public void setPhones(Phones phones) {
-		this.phones = phones;
+	public void setPhones(Phone phone) {
+		this.phone = phone;
 	}
 
 	@OneToOne(fetch = FetchType.LAZY)
@@ -260,12 +260,12 @@ public class Users implements java.io.Serializable {
 	}
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "events")
-	public Cities getCities() {
-		return this.cities;
+	public City getCities() {
+		return this.city;
 	}
 
-	public void setCities(Cities cities) {
-		this.cities = cities;
+	public void setCities(City city) {
+		this.city = city;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "users")

@@ -21,33 +21,33 @@ import org.hibernate.annotations.Parameter;
  */
 @Entity
 @Table(name = "userroles", catalog = "activizm", uniqueConstraints = @UniqueConstraint(columnNames = "roleId"))
-public class Userroles implements java.io.Serializable {
+public class Userrole implements java.io.Serializable {
 
 	private Integer userroleId;
 	private Areaofresponsibility areaofresponsibility;
-	private Userroleevents userroleevents;
-	private Users users;
+	private Userroleevent userroleevent;
+	private User user;
 	private int roleId;
-	private Roles roles;
+	private Role role;
 
-	public Userroles() {
+	public Userrole() {
 	}
 
-	public Userroles(Areaofresponsibility areaofresponsibility,
-			Userroleevents userroleevents, Users users, int roleId) {
+	public Userrole(Areaofresponsibility areaofresponsibility,
+			Userroleevent userroleevent, User user, int roleId) {
 		this.areaofresponsibility = areaofresponsibility;
-		this.userroleevents = userroleevents;
-		this.users = users;
+		this.userroleevent = userroleevent;
+		this.user = user;
 		this.roleId = roleId;
 	}
 
-	public Userroles(Areaofresponsibility areaofresponsibility,
-			Userroleevents userroleevents, Users users, int roleId, Roles roles) {
+	public Userrole(Areaofresponsibility areaofresponsibility,
+			Userroleevent userroleevent, User user, int roleId, Role role) {
 		this.areaofresponsibility = areaofresponsibility;
-		this.userroleevents = userroleevents;
-		this.users = users;
+		this.userroleevent = userroleevent;
+		this.user = user;
 		this.roleId = roleId;
-		this.roles = roles;
+		this.role = role;
 	}
 
 	@GenericGenerator(name = "generator", strategy = "foreign", parameters = @Parameter(name = "property", value = "areaofresponsibility"))
@@ -75,22 +75,22 @@ public class Userroles implements java.io.Serializable {
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
-	public Userroleevents getUserroleevents() {
-		return this.userroleevents;
+	public Userroleevent getUserroleevents() {
+		return this.userroleevent;
 	}
 
-	public void setUserroleevents(Userroleevents userroleevents) {
-		this.userroleevents = userroleevents;
+	public void setUserroleevents(Userroleevent userroleevent) {
+		this.userroleevent = userroleevent;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "userId", nullable = false)
-	public Users getUsers() {
-		return this.users;
+	public User getUsers() {
+		return this.user;
 	}
 
-	public void setUsers(Users users) {
-		this.users = users;
+	public void setUsers(User user) {
+		this.user = user;
 	}
 
 	@Column(name = "roleId", unique = true, nullable = false)
@@ -103,12 +103,12 @@ public class Userroles implements java.io.Serializable {
 	}
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "userroles")
-	public Roles getRoles() {
-		return this.roles;
+	public Role getRoles() {
+		return this.role;
 	}
 
-	public void setRoles(Roles roles) {
-		this.roles = roles;
+	public void setRoles(Role role) {
+		this.role = role;
 	}
 
 }

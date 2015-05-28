@@ -25,7 +25,7 @@ import javax.persistence.UniqueConstraint;
  */
 @Entity
 @Table(name = "events", catalog = "activizm", uniqueConstraints = @UniqueConstraint(columnNames = "cityId"))
-public class Events implements java.io.Serializable {
+public class Event implements java.io.Serializable {
 
 	private Integer eventId;
 	private Eventtype eventtype;
@@ -40,23 +40,23 @@ public class Events implements java.io.Serializable {
 	private String commentEnd;
 	private Integer cityId;
 	private Set userroleeventses = new HashSet(0);
-	private Cities cities;
+	private City city;
 
-	public Events() {
+	public Event() {
 	}
 
-	public Events(Date eventStartDate, double departurePointX,
+	public Event(Date eventStartDate, double departurePointX,
 			double departurePointY) {
 		this.eventStartDate = eventStartDate;
 		this.departurePointX = departurePointX;
 		this.departurePointY = departurePointY;
 	}
 
-	public Events(Eventtype eventtype, Date eventStartDate,
+	public Event(Eventtype eventtype, Date eventStartDate,
 			double departurePointX, double departurePointY,
 			Double arrivalPointX, Double arrivalPointY, String comment,
 			Boolean status1, Date eventEndDate, String commentEnd,
-			Integer cityId, Set userroleeventses, Cities cities) {
+			Integer cityId, Set userroleeventses, City city) {
 		this.eventtype = eventtype;
 		this.eventStartDate = eventStartDate;
 		this.departurePointX = departurePointX;
@@ -69,7 +69,7 @@ public class Events implements java.io.Serializable {
 		this.commentEnd = commentEnd;
 		this.cityId = cityId;
 		this.userroleeventses = userroleeventses;
-		this.cities = cities;
+		this.city = city;
 	}
 
 	@Id
@@ -195,12 +195,12 @@ public class Events implements java.io.Serializable {
 	}
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "events")
-	public Cities getCities() {
-		return this.cities;
+	public City getCities() {
+		return this.city;
 	}
 
-	public void setCities(Cities cities) {
-		this.cities = cities;
+	public void setCities(City city) {
+		this.city = city;
 	}
 
 }

@@ -22,21 +22,21 @@ import javax.persistence.UniqueConstraint;
 public class Organisationeventtype implements java.io.Serializable {
 
 	private Integer connectionId;
-	private Communities communities;
+	private Community community;
 	private int eventTypeId;
 	private Eventtype eventtype;
 
 	public Organisationeventtype() {
 	}
 
-	public Organisationeventtype(Communities communities, int eventTypeId) {
-		this.communities = communities;
+	public Organisationeventtype(Community community, int eventTypeId) {
+		this.community = community;
 		this.eventTypeId = eventTypeId;
 	}
 
-	public Organisationeventtype(Communities communities, int eventTypeId,
+	public Organisationeventtype(Community community, int eventTypeId,
 			Eventtype eventtype) {
-		this.communities = communities;
+		this.community = community;
 		this.eventTypeId = eventTypeId;
 		this.eventtype = eventtype;
 	}
@@ -54,12 +54,12 @@ public class Organisationeventtype implements java.io.Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ComunityId", nullable = false)
-	public Communities getCommunities() {
-		return this.communities;
+	public Community getCommunities() {
+		return this.community;
 	}
 
-	public void setCommunities(Communities communities) {
-		this.communities = communities;
+	public void setCommunities(Community community) {
+		this.community = community;
 	}
 
 	@Column(name = "EventTypeId", unique = true, nullable = false)

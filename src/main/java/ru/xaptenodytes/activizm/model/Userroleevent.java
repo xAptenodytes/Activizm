@@ -22,29 +22,29 @@ import javax.persistence.UniqueConstraint;
  */
 @Entity
 @Table(name = "userroleevents", catalog = "activizm", uniqueConstraints = @UniqueConstraint(columnNames = "userroleId"))
-public class Userroleevents implements java.io.Serializable {
+public class Userroleevent implements java.io.Serializable {
 
 	private Integer userroleeventId;
-	private Events events;
+	private Event event;
 	private int userroleId;
 	private Date eventSignDate;
-	private Userroles userroles;
+	private Userrole userrole;
 
-	public Userroleevents() {
+	public Userroleevent() {
 	}
 
-	public Userroleevents(Events events, int userroleId, Date eventSignDate) {
-		this.events = events;
+	public Userroleevent(Event event, int userroleId, Date eventSignDate) {
+		this.event = event;
 		this.userroleId = userroleId;
 		this.eventSignDate = eventSignDate;
 	}
 
-	public Userroleevents(Events events, int userroleId, Date eventSignDate,
-			Userroles userroles) {
-		this.events = events;
+	public Userroleevent(Event event, int userroleId, Date eventSignDate,
+			Userrole userrole) {
+		this.event = event;
 		this.userroleId = userroleId;
 		this.eventSignDate = eventSignDate;
-		this.userroles = userroles;
+		this.userrole = userrole;
 	}
 
 	@Id
@@ -60,12 +60,12 @@ public class Userroleevents implements java.io.Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "eventId", nullable = false)
-	public Events getEvents() {
-		return this.events;
+	public Event getEvents() {
+		return this.event;
 	}
 
-	public void setEvents(Events events) {
-		this.events = events;
+	public void setEvents(Event event) {
+		this.event = event;
 	}
 
 	@Column(name = "userroleId", unique = true, nullable = false)
@@ -88,12 +88,12 @@ public class Userroleevents implements java.io.Serializable {
 	}
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "areaofresponsibility")
-	public Userroles getUserroles() {
-		return this.userroles;
+	public Userrole getUserroles() {
+		return this.userrole;
 	}
 
-	public void setUserroles(Userroles userroles) {
-		this.userroles = userroles;
+	public void setUserroles(Userrole userrole) {
+		this.userrole = userrole;
 	}
 
 }

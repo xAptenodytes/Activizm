@@ -24,18 +24,18 @@ public class Areaofresponsibility implements java.io.Serializable {
 	private Double mapPointX;
 	private Double mapPointY;
 	private Double radius;
-	private Userroles userroles;
+	private Userrole userrole;
 
 	public Areaofresponsibility() {
 	}
 
 	public Areaofresponsibility(Integer userroleId, Double mapPointX,
-			Double mapPointY, Double radius, Userroles userroles) {
+			Double mapPointY, Double radius, Userrole userrole) {
 		this.userroleId = userroleId;
 		this.mapPointX = mapPointX;
 		this.mapPointY = mapPointY;
 		this.radius = radius;
-		this.userroles = userroles;
+		this.userrole = userrole;
 	}
 
 	@Id
@@ -86,12 +86,12 @@ public class Areaofresponsibility implements java.io.Serializable {
 	}
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "areaofresponsibility")
-	public Userroles getUserroles() {
-		return this.userroles;
+	public Userrole getUserroles() {
+		return this.userrole;
 	}
 
-	public void setUserroles(Userroles userroles) {
-		this.userroles = userroles;
+	public void setUserroles(Userrole userrole) {
+		this.userrole = userrole;
 	}
 
 }
