@@ -1,6 +1,6 @@
 package ru.xaptenodytes.activizm.model;
 
-// Generated 24.05.2015 22:32:50 by Hibernate Tools 4.3.1
+// Generated 01.06.2015 21:49:07 by Hibernate Tools 4.3.1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,24 +21,28 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "usersubcommunity", catalog = "activizm", uniqueConstraints = @UniqueConstraint(columnNames = "userId"))
 public class Usersubcommunity implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -757854071660217220L;
 	private Integer usersubcommunityId;
-	private Subcommunity subcommunity;
+	private Subcommunity Subcommunity;
 	private int userId;
-	private User user;
+	private User users;
 
 	public Usersubcommunity() {
 	}
 
-	public Usersubcommunity(Subcommunity subcommunity, int userId) {
-		this.subcommunity = subcommunity;
+	public Usersubcommunity(Subcommunity Subcommunity, int userId) {
+		this.Subcommunity = Subcommunity;
 		this.userId = userId;
 	}
 
-	public Usersubcommunity(Subcommunity subcommunity, int userId,
-			User user) {
-		this.subcommunity = subcommunity;
+	public Usersubcommunity(Subcommunity Subcommunity, int userId,
+			User users) {
+		this.Subcommunity = Subcommunity;
 		this.userId = userId;
-		this.user = user;
+		this.users = users;
 	}
 
 	@Id
@@ -54,12 +58,12 @@ public class Usersubcommunity implements java.io.Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "subcommunityId", nullable = false)
-	public Subcommunity getSubcommunities() {
-		return this.subcommunity;
+	public Subcommunity getSubcommunity() {
+		return this.Subcommunity;
 	}
 
-	public void setSubcommunities(Subcommunity subcommunity) {
-		this.subcommunity = subcommunity;
+	public void setSubcommunity(Subcommunity Subcommunity) {
+		this.Subcommunity = Subcommunity;
 	}
 
 	@Column(name = "userId", unique = true, nullable = false)
@@ -73,11 +77,11 @@ public class Usersubcommunity implements java.io.Serializable {
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "phones")
 	public User getUsers() {
-		return this.user;
+		return this.users;
 	}
 
-	public void setUsers(User user) {
-		this.user = user;
+	public void setUsers(User users) {
+		this.users = users;
 	}
 
 }

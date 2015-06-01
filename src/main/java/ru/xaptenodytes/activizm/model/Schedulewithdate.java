@@ -1,6 +1,6 @@
 package ru.xaptenodytes.activizm.model;
 
-// Generated 24.05.2015 22:32:50 by Hibernate Tools 4.3.1
+// Generated 01.06.2015 21:49:07 by Hibernate Tools 4.3.1
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -22,6 +22,10 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "schedulewithdate", catalog = "activizm", uniqueConstraints = @UniqueConstraint(columnNames = "userId"))
 public class Schedulewithdate implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7543178340645501057L;
 	private Integer sheldueWithDateId;
 	private int userId;
 	private Double mapPointX;
@@ -29,7 +33,7 @@ public class Schedulewithdate implements java.io.Serializable {
 	private Integer radius;
 	private Date beginDate;
 	private Date endDate;
-	private User user;
+	private User users;
 
 	public Schedulewithdate() {
 	}
@@ -39,14 +43,14 @@ public class Schedulewithdate implements java.io.Serializable {
 	}
 
 	public Schedulewithdate(int userId, Double mapPointX, Double mapPointY,
-			Integer radius, Date beginDate, Date endDate, User user) {
+			Integer radius, Date beginDate, Date endDate, User users) {
 		this.userId = userId;
 		this.mapPointX = mapPointX;
 		this.mapPointY = mapPointY;
 		this.radius = radius;
 		this.beginDate = beginDate;
 		this.endDate = endDate;
-		this.user = user;
+		this.users = users;
 	}
 
 	@Id
@@ -118,11 +122,11 @@ public class Schedulewithdate implements java.io.Serializable {
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "phones")
 	public User getUsers() {
-		return this.user;
+		return this.users;
 	}
 
-	public void setUsers(User user) {
-		this.user = user;
+	public void setUsers(User users) {
+		this.users = users;
 	}
 
 }

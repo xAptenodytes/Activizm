@@ -23,6 +23,10 @@ import org.hibernate.annotations.Parameter;
 @Table(name = "userroles", catalog = "activizm", uniqueConstraints = @UniqueConstraint(columnNames = "roleId"))
 public class Userrole implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2535133450121840659L;
 	private Integer userroleId;
 	private Areaofresponsibility areaofresponsibility;
 	private Userroleevent userroleevent;

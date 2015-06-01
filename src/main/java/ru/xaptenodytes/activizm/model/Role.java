@@ -67,12 +67,12 @@ public class Role implements java.io.Serializable {
 	public String getRole() {
 		return this.role;
 	}
-
+	
 	public void setRole(String role) {
 		this.role = role;
 	}
 	
-	@Column(name = "role", length = 50)
+	@Column(name = "label", length = 50)
 	public String getLabel() {
 		return this.label;
 	}

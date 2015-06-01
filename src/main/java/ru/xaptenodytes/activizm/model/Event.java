@@ -27,6 +27,10 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "events", catalog = "activizm", uniqueConstraints = @UniqueConstraint(columnNames = "cityId"))
 public class Event implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4782381012360194424L;
 	private Integer eventId;
 	private Eventtype eventtype;
 	private Date eventStartDate;
@@ -39,7 +43,7 @@ public class Event implements java.io.Serializable {
 	private Date eventEndDate;
 	private String commentEnd;
 	private Integer cityId;
-	private Set userroleeventses = new HashSet(0);
+	private Set<Userroleevent> userroleeventses = new HashSet<>(0);
 	private City city;
 
 	public Event() {
@@ -56,7 +60,7 @@ public class Event implements java.io.Serializable {
 			double departurePointX, double departurePointY,
 			Double arrivalPointX, Double arrivalPointY, String comment,
 			Boolean status1, Date eventEndDate, String commentEnd,
-			Integer cityId, Set userroleeventses, City city) {
+			Integer cityId, Set<Userroleevent> userroleeventses, City city) {
 		this.eventtype = eventtype;
 		this.eventStartDate = eventStartDate;
 		this.departurePointX = departurePointX;
@@ -186,11 +190,11 @@ public class Event implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "events")
-	public Set getUserroleeventses() {
+	public Set<Userroleevent> getUserroleeventses() {
 		return this.userroleeventses;
 	}
 
-	public void setUserroleeventses(Set userroleeventses) {
+	public void setUserroleeventses(Set<Userroleevent> userroleeventses) {
 		this.userroleeventses = userroleeventses;
 	}
 

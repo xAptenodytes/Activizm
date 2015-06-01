@@ -1,6 +1,6 @@
 package ru.xaptenodytes.activizm.model;
 
-// Generated 24.05.2015 22:32:50 by Hibernate Tools 4.3.1
+// Generated 01.06.2015 21:49:07 by Hibernate Tools 4.3.1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,23 +19,27 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "areaofresponsibility", catalog = "activizm", uniqueConstraints = @UniqueConstraint(columnNames = "userroleId"))
 public class Areaofresponsibility implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2106403529309809595L;
 	private Integer areaId;
 	private Integer userroleId;
 	private Double mapPointX;
 	private Double mapPointY;
 	private Double radius;
-	private Userrole userrole;
+	private Userrole Userrole;
 
 	public Areaofresponsibility() {
 	}
 
 	public Areaofresponsibility(Integer userroleId, Double mapPointX,
-			Double mapPointY, Double radius, Userrole userrole) {
+			Double mapPointY, Double radius, Userrole Userrole) {
 		this.userroleId = userroleId;
 		this.mapPointX = mapPointX;
 		this.mapPointY = mapPointY;
 		this.radius = radius;
-		this.userrole = userrole;
+		this.Userrole = Userrole;
 	}
 
 	@Id
@@ -86,12 +90,12 @@ public class Areaofresponsibility implements java.io.Serializable {
 	}
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "areaofresponsibility")
-	public Userrole getUserroles() {
-		return this.userrole;
+	public Userrole getUserrole() {
+		return this.Userrole;
 	}
 
-	public void setUserroles(Userrole userrole) {
-		this.userrole = userrole;
+	public void setUserrole(Userrole Userrole) {
+		this.Userrole = Userrole;
 	}
 
 }

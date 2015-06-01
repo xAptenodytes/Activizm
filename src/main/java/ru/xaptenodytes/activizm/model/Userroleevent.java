@@ -24,6 +24,10 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "userroleevents", catalog = "activizm", uniqueConstraints = @UniqueConstraint(columnNames = "userroleId"))
 public class Userroleevent implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8213408984410152709L;
 	private Integer userroleeventId;
 	private Event event;
 	private int userroleId;

@@ -18,29 +18,29 @@ import ru.xaptenodytes.activizm.model.User;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService{
 	@Autowired
-	UserService UserService;
+	UserService userService;
 	
 	public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-		User User = UserService.getUserLogin(login);
+		User user = userService.getUserLogin(login);
    
-		boolean enabled = User.isEnabled();
+		boolean enabled = user.isEnabled();
         boolean accountNonExpired = true;
         boolean credentialsNonExpired = true;  
-        boolean accountNonLocked = User.isNonLocked();
+        boolean accountNonLocked = user.isNonLocked();
         
-        return null /*new User(
-        		User.getLogin(),
-        		User.getPassword(),
+        return new org.springframework.security.core.userdetails.User(
+        		user.getLogin(),
+        		user.getPassword(),
                 enabled,
                 accountNonExpired,
                 credentialsNonExpired,   
                 accountNonLocked,
-                getAuthorities(User)
-        )*/; 
+                getAuthorities(user)
+        ); 
 	}
 
-	private Collection<? extends GrantedAuthority> getAuthorities(User User) {
-		return getGrantedAuthorities(User);
+	private Collection<? extends GrantedAuthority> getAuthorities(User user) {
+		return getGrantedAuthorities(user);
 	}
 	
 	public List<GrantedAuthority> getGrantedAuthorities(User User) {

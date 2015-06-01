@@ -20,6 +20,10 @@ import org.hibernate.annotations.Parameter;
 @Table(name = "cities", catalog = "activizm")
 public class City implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4222830336499892809L;
 	private Integer cityId;
 	private Event event;
 	private Subcommunity subcommunity;

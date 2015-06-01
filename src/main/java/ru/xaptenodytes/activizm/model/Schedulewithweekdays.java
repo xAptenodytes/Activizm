@@ -1,6 +1,6 @@
 package ru.xaptenodytes.activizm.model;
 
-// Generated 24.05.2015 22:32:50 by Hibernate Tools 4.3.1
+// Generated 01.06.2015 21:49:07 by Hibernate Tools 4.3.1
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -22,6 +22,10 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "schedulewithweekdays", catalog = "activizm", uniqueConstraints = @UniqueConstraint(columnNames = "userId"))
 public class Schedulewithweekdays implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1427955029840994396L;
 	private Integer sheldueWithWeekdaysId;
 	private int userId;
 	private Double mapPointX;
@@ -30,7 +34,7 @@ public class Schedulewithweekdays implements java.io.Serializable {
 	private Integer weekday;
 	private Date beginTime;
 	private Date endTime;
-	private User user;
+	private User users;
 
 	public Schedulewithweekdays() {
 	}
@@ -41,7 +45,7 @@ public class Schedulewithweekdays implements java.io.Serializable {
 
 	public Schedulewithweekdays(int userId, Double mapPointX, Double mapPointY,
 			Integer radius, Integer weekday, Date beginTime, Date endTime,
-			User user) {
+			User users) {
 		this.userId = userId;
 		this.mapPointX = mapPointX;
 		this.mapPointY = mapPointY;
@@ -49,7 +53,7 @@ public class Schedulewithweekdays implements java.io.Serializable {
 		this.weekday = weekday;
 		this.beginTime = beginTime;
 		this.endTime = endTime;
-		this.user = user;
+		this.users = users;
 	}
 
 	@Id
@@ -130,11 +134,11 @@ public class Schedulewithweekdays implements java.io.Serializable {
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "phones")
 	public User getUsers() {
-		return this.user;
+		return this.users;
 	}
 
-	public void setUsers(User user) {
-		this.user = user;
+	public void setUsers(User users) {
+		this.users = users;
 	}
 
 }

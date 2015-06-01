@@ -1,6 +1,6 @@
 package ru.xaptenodytes.activizm.model;
 
-// Generated 24.05.2015 22:32:50 by Hibernate Tools 4.3.1
+// Generated 01.06.2015 21:49:07 by Hibernate Tools 4.3.1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,22 +21,26 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "organisationeventtype", catalog = "activizm", uniqueConstraints = @UniqueConstraint(columnNames = "EventTypeId"))
 public class Organisationeventtype implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8818291422129208982L;
 	private Integer connectionId;
-	private Community community;
+	private Community Community;
 	private int eventTypeId;
 	private Eventtype eventtype;
 
 	public Organisationeventtype() {
 	}
 
-	public Organisationeventtype(Community community, int eventTypeId) {
-		this.community = community;
+	public Organisationeventtype(Community Community, int eventTypeId) {
+		this.Community = Community;
 		this.eventTypeId = eventTypeId;
 	}
 
-	public Organisationeventtype(Community community, int eventTypeId,
+	public Organisationeventtype(Community Community, int eventTypeId,
 			Eventtype eventtype) {
-		this.community = community;
+		this.Community = Community;
 		this.eventTypeId = eventTypeId;
 		this.eventtype = eventtype;
 	}
@@ -54,12 +58,12 @@ public class Organisationeventtype implements java.io.Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ComunityId", nullable = false)
-	public Community getCommunities() {
-		return this.community;
+	public Community getCommunity() {
+		return this.Community;
 	}
 
-	public void setCommunities(Community community) {
-		this.community = community;
+	public void setCommunity(Community Community) {
+		this.Community = Community;
 	}
 
 	@Column(name = "EventTypeId", unique = true, nullable = false)

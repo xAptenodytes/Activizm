@@ -24,13 +24,17 @@ import javax.persistence.UniqueConstraint;
 		@UniqueConstraint(columnNames = "ComunityId") })
 public class Subcommunity implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6656712578359781238L;
 	private Integer subcomunityId;
 	private int comunityId;
 	private String subcomunityName;
 	private Integer cityId;
 	private Community community;
 	private City city;
-	private Set usersubcommunities = new HashSet(0);
+	private Set<Usersubcommunity> usersubcommunities = new HashSet<>(0);
 
 	public Subcommunity() {
 	}
@@ -42,7 +46,7 @@ public class Subcommunity implements java.io.Serializable {
 
 	public Subcommunity(int comunityId, String subcomunityName,
 			Integer cityId, Community community, City city,
-			Set usersubcommunities) {
+			Set<Usersubcommunity> usersubcommunities) {
 		this.comunityId = comunityId;
 		this.subcomunityName = subcomunityName;
 		this.cityId = cityId;
@@ -108,11 +112,11 @@ public class Subcommunity implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "subcommunities")
-	public Set getUsersubcommunities() {
+	public Set<Usersubcommunity> getUsersubcommunities() {
 		return this.usersubcommunities;
 	}
 
-	public void setUsersubcommunities(Set usersubcommunities) {
+	public void setUsersubcommunities(Set<Usersubcommunity> usersubcommunities) {
 		this.usersubcommunities = usersubcommunities;
 	}
 

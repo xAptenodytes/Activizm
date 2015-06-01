@@ -3,12 +3,13 @@ package ru.xaptenodytes.activizm.dao;
 // Generated 01.06.2015 16:54:54 by Hibernate Tools 4.3.1
 
 import javax.ejb.Stateless;
-import javax.management.relation.Role;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
+import ru.xaptenodytes.activizm.model.Role;
 
 /**
  * Home object for domain model class Role.
@@ -19,7 +20,7 @@ import org.apache.commons.logging.LogFactory;
 public class RoleHome {
 
 	private static final Log log = LogFactory.getLog(RoleHome.class);
-
+	
 	@PersistenceContext
 	private EntityManager entityManager;
 

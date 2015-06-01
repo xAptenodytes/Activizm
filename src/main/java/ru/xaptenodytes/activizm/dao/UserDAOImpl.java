@@ -50,6 +50,7 @@ public class UserDAOImpl implements UserDAO {
 		
 	}
 
+	@SuppressWarnings("unused")
 	private void updateOrSave(User user) {
 		
 		
