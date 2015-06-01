@@ -20,10 +20,15 @@ import org.hibernate.annotations.Parameter;
 @Table(name = "roles", catalog = "activizm")
 public class Role implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1128045489550244436L;
 	private Integer roleId;
 	private Userrole userrole;
-	private String roleName;
-
+	private String role;
+	private String label;
+	
 	public Role() {
 	}
 
@@ -33,7 +38,7 @@ public class Role implements java.io.Serializable {
 
 	public Role(Userrole userrole, String roleName) {
 		this.userrole = userrole;
-		this.roleName = roleName;
+		this.role = roleName;
 	}
 
 	@GenericGenerator(name = "generator", strategy = "foreign", parameters = @Parameter(name = "property", value = "userroles"))
@@ -58,13 +63,21 @@ public class Role implements java.io.Serializable {
 		this.userrole = userrole;
 	}
 
-	@Column(name = "roleName", length = 50)
-	public String getRoleName() {
-		return this.roleName;
+	@Column(name = "role", length = 50)
+	public String getRole() {
+		return this.role;
 	}
 
-	public void setRoleName(String roleName) {
-		this.roleName = roleName;
+	public void setRole(String role) {
+		this.role = role;
+	}
+	
+	@Column(name = "role", length = 50)
+	public String getLabel() {
+		return this.label;
 	}
 
+	public void setLabel(String label) {
+		this.label = label;
+	}
 }

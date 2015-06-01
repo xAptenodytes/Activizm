@@ -9,13 +9,14 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-@SuppressWarnings("deprecation")
+import ru.xaptenodytes.activizm.service.UserDetailsServiceImpl;
+
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled=true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-	//@Autowired
-	//UserDetailsServiceImpl userDetailsService;
+	@Autowired
+	UserDetailsServiceImpl userDetailsService;
 
 	@Autowired
     public void registerGlobalAuthentication(AuthenticationManagerBuilder auth) throws Exception {
